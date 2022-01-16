@@ -1,4 +1,4 @@
-NAME := readme-txt
+NAME := reader-txt
 .DEFAULT_GOAL := build
 
 VERS ?= $(shell git describe --dirty --long --always)
@@ -26,6 +26,10 @@ build-linux-x64:
 	GOOS=linux GOARCH=amd64 go build -ldflags "-X main.commitVersion=$(VERS)" -o build/$(NAME)-linux-amd64
 .PHONY: build-linux-x64
 
+build-linux-arm64:
+	GOOS=linux GOARCH=arm64 go build -ldflags "-X main.commitVersion=$(VERS)" -o build/$(NAME)-linux-arm64
+.PHONY: build-linux-arm64
+
 build-all:
 	GOOS=linux GOARCH=amd64 go build -ldflags "-X main.commitVersion=$(VERS)" -o build/$(NAME)-linux-amd64
 	GOOS=linux GOARCH=arm64 go build -ldflags "-X main.commitVersion=$(VERS)" -o build/$(NAME)-linux-arm64
@@ -41,3 +45,7 @@ clean:
 tidy:
 	go mod tidy
 .PHONY:tidy
+
+run:
+	build/$(NAME)
+.PHONY: run

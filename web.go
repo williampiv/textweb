@@ -2,7 +2,7 @@ package main
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/williampiv/reader-sms/internal/textify"
+	"github.com/williampiv/textweb/internal/textify"
 	"html/template"
 
 	"net/http"

@@ -1,4 +1,4 @@
-module github.com/williampiv/reader-sms
+module github.com/williampiv/textweb
 
 go 1.17
 

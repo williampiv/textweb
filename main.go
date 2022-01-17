@@ -13,7 +13,7 @@ var router *gin.Engine
 func main() {
 	log.Println("textWeb Version:", commitVersion)
 	router = gin.Default()
-	router.Use(gzip.Gzip(gzip.DefaultCompression))
+	router.Use(gzip.Gzip(gzip.BestCompression))
 	if err := router.SetTrustedProxies([]string{"127.0.0.1"}); err != nil {
 		log.Fatalln(err)
 	}

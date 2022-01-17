@@ -3,6 +3,7 @@ module github.com/williampiv/textweb
 go 1.17
 
 require (
+	github.com/anaskhan96/soup v1.2.5
 	github.com/gin-contrib/gzip v0.0.5
 	github.com/gin-gonic/gin v1.7.7
 	github.com/go-shiori/go-readability v0.0.0-20210627123243-82cc33435520

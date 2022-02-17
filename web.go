@@ -7,8 +7,6 @@ import (
 	"github.com/williampiv/textweb/internal/textify"
 	"html/template"
 	"log"
-	"strings"
-
 	"net/http"
 )
 
@@ -38,13 +36,7 @@ func textifyPage(c *gin.Context) {
 	if err != nil {
 		log.Println(err)
 	}
-	// TODO: maybe cleanup how these string replacements occur
-	// All links should stay in textWeb if possible
-	content = strings.Replace(content, "href=\"", "href=\"/text?url=", -1)
-	// No giant images
-	content = strings.Replace(content, "src=", "width=\"25%\" src=", -1)
-	// Let's keep it all in one window
-	content = strings.Replace(content, " target=\"_blank\"", "", -1)
+	textify.ReplaceHTMLContent(&content)
 	c.HTML(http.StatusOK, "content.html", gin.H{
 		"title":   title,
 		"payload": template.HTML(content),

@@ -18,7 +18,7 @@ Macintosh Plus. Though, some additional work to remove more js and other element
 to actually achieve full functionality.
 
 ## How to use it
-Easily emough, clone the repo, `cd` into it, and run `make` (assuming you have Go installed) and you should get a nice
+Easily enough, clone the repo, `cd` into it, and run `make` (assuming you have Go installed) and you should get a nice
 binary in `build/` that you can run.
 
 
@@ -86,6 +86,7 @@ sudo mv *.html /var/lib/textweb/templates/
 
 Let textWeb User Own All of Those
 sudo chown -R textweb:textweb /var/lib/textweb/*
+
 # Create the SystemD Unit
 sudo vim /etc/systemd/system/textweb.service
 

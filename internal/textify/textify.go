@@ -1,9 +1,10 @@
 package textify
 
 import (
-	"github.com/go-shiori/go-readability"
 	"strings"
 	"time"
+
+	"github.com/go-shiori/go-readability"
 )
 
 // HTMLReplacement contains the string to be replaced, with its replacement string
@@ -25,9 +26,9 @@ func ByURL(url string) (string, string, error) {
 // ReplaceString from an HTMLReplacement struct with its ReplacementString
 func ReplaceHTMLContent(webContent *string) {
 	replacements := []HTMLReplacement{
-		HTMLReplacement{"href=\"", "href=\"/text?url="},
-		HTMLReplacement{"src=", "width=\"25%\" src="},
-		HTMLReplacement{" target=\"_blank\"", ""},
+		{"href=\"", "href=\"/text?url="},
+		{"src=", "width=\"25%\" src="},
+		{" target=\"_blank\"", ""},
 	}
 	for _, i := range replacements {
 		*webContent = strings.Replace(*webContent, i.ReplaceString, i.ReplacementString, -1)
